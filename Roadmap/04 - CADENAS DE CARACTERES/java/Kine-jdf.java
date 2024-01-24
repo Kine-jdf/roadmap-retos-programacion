@@ -42,19 +42,25 @@ aux +=  uno.charAt((j-1)); }
     
     return son; }  //
 
-static boolean  anagram (String uno, String dos){
-         boolean son=false; 
-         char[] aux;
-          char[] aux2;
-         if(uno.length()==dos.length()){
-             
-             aux = uno.toCharArray();
-             aux2=dos.toCharArray();
-            aux.sort();
-            aux2.sort();
-son = aux.toString().equalsIgnoreCase(aux2.toString());
-     }       
-               return son; }
+ static boolean anagram(String uno, String dos) {
+        boolean son = false;
+        char[] aux;
+        char[] aux2;
+
+        if (uno.length() == dos.length()) {
+            aux = uno.toLowerCase().toCharArray();
+            aux2 = dos.toLowerCase().toCharArray();
+
+            // Ordenar los arrays de caracteres
+            Arrays.sort(aux);
+            Arrays.sort(aux2);
+
+            // Comparar los arrays después de ordenarlos
+            son = Arrays.equals(aux, aux2);
+        }
+
+        return son;
+    }
 
 //metodo que analiza tanto heterogramas (todas letras sin repetir) como isograma(cuando una letra se repite, que se repita un nro par)
  static boolean isograma(String palabra) {
